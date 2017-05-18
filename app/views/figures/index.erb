@@ -1,8 +1,19 @@
 <h1>Figures</h1>
-<ul>
-  <% @figures.each do |figure| %>
-  <li>
-    <p>Name: <%= figure.name %></p>
-  </li>
+
+<table>
+  <th>Person Name</th>
+  <tr>
+    <% @figures.each do |figure| %>
+    <td align="center">
+      <a href="/figures/<%= figure.id %>"><%= figure.name %></a>
+      <ul>
+        <% figure.titles.each do |title| %>
+        <li><%= title.name %></li>
+        <%end%>
+      </ul>
+    </tr>
+  </td>
   <% end %>
-</ul>
+</table>
+<br>
+<a class="button" href="/">Go Home</a>
